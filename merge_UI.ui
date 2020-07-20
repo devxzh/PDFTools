@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Merge_Dialog</class>
+ <widget class="QDialog" name="Merge_Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>670</width>
+    <height>405</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>670</width>
+    <height>405</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>670</width>
+    <height>405</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>微软雅黑</family>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>合并文档</string>
+  </property>
+  <widget class="QPushButton" name="pushButton_w4_add">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>22</y>
+     <width>100</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>➕添加</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_w4_start">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>232</y>
+     <width>100</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>开始</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_w4_remove">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>74</y>
+     <width>100</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>➖移除</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_w4_up">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>126</y>
+     <width>100</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>⬆上移</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_w4_down">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>178</y>
+     <width>100</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>⬇下移</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget_w4_fileList">
+   <property name="geometry">
+    <rect>
+     <x>18</x>
+     <y>22</y>
+     <width>520</width>
+     <height>310</height>
+    </rect>
+   </property>
+   <property name="showGrid">
+    <bool>true</bool>
+   </property>
+   <property name="gridStyle">
+    <enum>Qt::SolidLine</enum>
+   </property>
+   <column>
+    <property name="text">
+     <string>PDF 文件 ( 0 )</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>页数</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </column>
+  </widget>
+  <widget class="QProgressBar" name="progressBar_w4_bar">
+   <property name="geometry">
+    <rect>
+     <x>18</x>
+     <y>358</y>
+     <width>635</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="value">
+    <number>0</number>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>2</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>2</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>false</bool>
+  </property>
+ </designerdata>
+</ui>

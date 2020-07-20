@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Add_Dialog</class>
+ <widget class="QDialog" name="Add_Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>595</width>
+    <height>392</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>595</width>
+    <height>392</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>595</width>
+    <height>392</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>微软雅黑</family>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>添加目录</string>
+  </property>
+  <widget class="QLineEdit" name="lineEdit_PDF">
+   <property name="geometry">
+    <rect>
+     <x>26</x>
+     <y>22</y>
+     <width>350</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_TXT">
+   <property name="geometry">
+    <rect>
+     <x>26</x>
+     <y>70</y>
+     <width>350</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_OpenPDF">
+   <property name="geometry">
+    <rect>
+     <x>394</x>
+     <y>22</y>
+     <width>80</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>打开PDF</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_OpenTXT">
+   <property name="geometry">
+    <rect>
+     <x>394</x>
+     <y>70</y>
+     <width>80</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>打开目录</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>14</x>
+     <y>114</y>
+     <width>565</width>
+     <height>263</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>处理进度</string>
+   </property>
+   <widget class="QTextEdit" name="textEdit_progress">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>28</y>
+      <width>539</width>
+      <height>223</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QSpinBox" name="spinBox_offset">
+   <property name="geometry">
+    <rect>
+     <x>486</x>
+     <y>22</y>
+     <width>80</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>页码偏差</string>
+   </property>
+   <property name="minimum">
+    <number>-100</number>
+   </property>
+   <property name="maximum">
+    <number>100</number>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_Start">
+   <property name="geometry">
+    <rect>
+     <x>486</x>
+     <y>70</y>
+     <width>80</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>开始</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>2</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>2</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>false</bool>
+  </property>
+ </designerdata>
+</ui>

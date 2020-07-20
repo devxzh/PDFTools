@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Split_Dialog</class>
+ <widget class="QDialog" name="Split_Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>611</width>
+    <height>331</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>611</width>
+    <height>331</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>611</width>
+    <height>331</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>微软雅黑</family>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>拆分文档</string>
+  </property>
+  <widget class="QLineEdit" name="lineEdit_w3_openPDF">
+   <property name="geometry">
+    <rect>
+     <x>29</x>
+     <y>30</y>
+     <width>460</width>
+     <height>30</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_w3_openPDF">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>30</y>
+     <width>80</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>打开PDF</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_w3_mode">
+   <property name="geometry">
+    <rect>
+     <x>28</x>
+     <y>86</y>
+     <width>460</width>
+     <height>140</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>拆分模式</string>
+   </property>
+   <widget class="QRadioButton" name="radioButton_w3_everyPage">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>153</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>每                  页</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_w3_selfSet">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>68</y>
+      <width>423</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>自定义提取为单个或多个pdf文件(如 1,3,5-7,8-18,10-81)</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox_w3_page">
+    <property name="geometry">
+     <rect>
+      <x>66</x>
+      <y>34</y>
+      <width>51</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_w3_pageSet">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>100</y>
+      <width>429</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="pushButton_w3_start">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>96</y>
+     <width>80</width>
+     <height>130</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>开始</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_w3_tip">
+   <property name="geometry">
+    <rect>
+     <x>26</x>
+     <y>248</y>
+     <width>549</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>1.打开pdf文件  2.设置拆分模式  3.点击开始</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>2</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>2</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>false</bool>
+  </property>
+ </designerdata>
+</ui>
