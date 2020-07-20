@@ -163,7 +163,7 @@ pip3 install pyqt5==5.12.0
    | Image.open            | 打开图片               |
    | ImageEnhance.Contrast | 增强方法               |
 
-### 6.代码详见[Github]()
+### 6.代码详见[Github](https://github.com/devxzh/PDFTools)
 
 ### 7.ToDo List
 
