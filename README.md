@@ -46,23 +46,23 @@ pip3 install pyqt5==5.12.0
 
 1. 主界面 (使用QCandyUi美化后的截图)
 
-![主界面](https://github.com/devxzh/devxzh.github.io/blob/master/posts/2020/07/20/imageMain.png)
+![imageMain.png](https://i.loli.net/2020/07/21/sQMa94oV1qOmLj2.png)
 
 2. 添加目录
 
-![添加目录](https://github.com/devxzh/devxzh.github.io/blob/master/posts/2020/07/20/imageAdd.png)
+![imageAdd.png](https://i.loli.net/2020/07/21/YzNgBd8yThGVv7e.png)
 
 3. 文本增强
 
-![文本增强](https://github.com/devxzh/devxzh.github.io/blob/master/posts/2020/07/20/imageEnhance.png)
+![imageEnhance.png](https://i.loli.net/2020/07/21/1SVjMAOD3idRWBP.png)
 
 4. 拆分文档
 
-![拆分文档](https://github.com/devxzh/devxzh.github.io/blob/master/posts/2020/07/20/imageSplit.png)
+![imageSplit.png](https://i.loli.net/2020/07/21/XLI1RNDyof5OQtb.png)
 
 5. 合并文档
 
-![合并文档](https://github.com/devxzh/devxzh.github.io/blob/master/posts/2020/07/20/imageMerge.png)
+![imageMerge.png](https://i.loli.net/2020/07/21/tpxkQFmwI5LSMh1.png)
 
 ### 4.步骤解析
 
@@ -167,11 +167,11 @@ pip3 install pyqt5==5.12.0
 
 ### 7.ToDo List
 
-​	-[ ] 自定义样式表
+​	- [ ] 自定义样式表
 
-​	-[ ] 自动爬取目录
+​	- [ ] 自动爬取目录
 
-​	-[ ] img2pdf
+​	- [ ] img2pdf
 
 ### 8.联系我： devxzh@qq.com
 
