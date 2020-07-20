@@ -46,23 +46,23 @@ pip3 install pyqt5==5.12.0
 
 1. 主界面 (使用QCandyUi美化后的截图)
 
-![image-20200720223727138](C:\Users\cherish\AppData\Roaming\Typora\typora-user-images\image-20200720223727138.png)
+![主界面](https://github.com/devxzh/devxzh.github.io/blob/master/posts/2020/07/20/imageMain.png)
 
 2. 添加目录
 
-![image-20200720223933871](C:\Users\cherish\AppData\Roaming\Typora\typora-user-images\image-20200720223933871.png)
+![添加目录](https://github.com/devxzh/devxzh.github.io/blob/master/posts/2020/07/20/imageAdd.png)
 
 3. 文本增强
 
-![image-20200720224009662](C:\Users\cherish\AppData\Roaming\Typora\typora-user-images\image-20200720224009662.png)
+![文本增强](https://github.com/devxzh/devxzh.github.io/blob/master/posts/2020/07/20/imageEnhance.png)
 
 4. 拆分文档
 
-![image-20200720224048371](C:\Users\cherish\AppData\Roaming\Typora\typora-user-images\image-20200720224048371.png)
+![拆分文档](https://github.com/devxzh/devxzh.github.io/blob/master/posts/2020/07/20/imageSplit.png)
 
 5. 合并文档
 
-![image-20200720224118804](C:\Users\cherish\AppData\Roaming\Typora\typora-user-images\image-20200720224118804.png)
+![合并文档](https://github.com/devxzh/devxzh.github.io/blob/master/posts/2020/07/20/imageMerge.png)
 
 ### 4.步骤解析
 
