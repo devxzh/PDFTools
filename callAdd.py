@@ -23,6 +23,7 @@ class AddForm(QDialog):
         self.ui.spinBox_offset.valueChanged.connect(self.offsetFunc)
         self.ui.pushButton_Start.clicked.connect(self.start)
         self.ui.textEdit_progress.setText(shorthelp)
+        generate_txtdemo()
         self.show()
 
     def tipShow(self):

@@ -9,8 +9,8 @@ from callMerge import MergeForm
 from callSplit import SplitForm
 from PDFTools import Ui_Dialog  # or import *
 
+# third theme
 from QCandyUi.CandyWindow import colorful
-
 @colorful('blueGreen')
 
 class MyForm(QDialog):
