@@ -57,6 +57,8 @@ class Ui_Merge_Dialog(object):
         self.tableWidget_w4_fileList.setObjectName("tableWidget_w4_fileList")
         self.tableWidget_w4_fileList.setColumnCount(2)
         self.tableWidget_w4_fileList.setRowCount(0)
+        self.tableWidget_w4_fileList.setColumnWidth(0, 450)
+        self.tableWidget_w4_fileList.setColumnWidth(1, 70)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_w4_fileList.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
