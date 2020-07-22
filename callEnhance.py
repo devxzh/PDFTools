@@ -70,6 +70,7 @@ class EnhanceForm(QDialog):
         
         if oldFileName!='':
             doc=fitz.open(oldFileName)
+            toc=doc.getToC()
             enhanceDoc=fitz.open()
             num=doc.pageCount
             baseBar=1.0/num*100
@@ -81,7 +82,7 @@ class EnhanceForm(QDialog):
                 enhanceDoc.insertPDF(imgpdf)
                 self.ui.label_w2_tips.setText("正在处理第 %d 页" % i)
                 self.ui.progressBar_w2.setValue(i*baseBar)
-            
+            enhanceDoc.setToC(toc)
             enhanceDoc.save(newFileName)
             doc.close()
             enhanceDoc.close()
