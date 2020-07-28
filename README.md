@@ -84,15 +84,15 @@ pip3 install pyqt5==5.12.0
 
 3. 编写调用窗口和信号处理代码。pyqt延续了qt的设计思想，只要处理好信号与槽(可理解为触发事件与处理方法关联)，那么编写项目也会得心应手。在编写过程中可查看[qt类手册](https://doc.qt.io/qt-5/qtwidgets-module.html)，pyqt中的方法大多与QT C++同名，但是少了`丑陋的指针` `->`，使代码不那么扎眼。具体见代码解析
 
-4. 推荐使用`ipython`对方法/类 进行测试
+4. 推荐使用`ipython`在命令行窗口对方法/类 进行测试
 
-5. 如果需要可进行打包
+5. ~~如果需要可进行打包~~ (生成的文件可能无法直接运行)
 
    ```bash
    pyinstaller --onefile --windowed --icon=PDF.ico main.py
    ```
 
-### 5.项目组成
+### 5.项目组成(四个`callxxx.py`均可独立运行)
 
 1. 代码组成 
 
@@ -120,7 +120,7 @@ pip3 install pyqt5==5.12.0
    | 控件        | 信号                          |
    | ----------- | ----------------------------- |
    | pushButton  | clicked                       |
-   | spinBox     | valueChanged /editintFinished |
+   | spinBox     | valueChanged /editingFinished |
    | Slider      | sliderMoved / valueChanged    |
    | radioButton | toggled                       |
    | lineEdit    | textChanged                   |
@@ -149,6 +149,7 @@ pip3 install pyqt5==5.12.0
    | insertPDF | 插入PDF             |
    | close     | 关闭                |
    | pageCount | 获取页码（属性）    |
+   | getToC    | 获取目录            |
 
 5. `os` ，`PIL` 中的方法
 
@@ -169,14 +170,76 @@ pip3 install pyqt5==5.12.0
    | Image.open            | 打开图片               |
    | ImageEnhance.Contrast | 增强方法               |
 
-### 6.代码详见[Github](https://github.com/devxzh/PDFTools)
+6. `demo.txt` 该文件是存放目录的文件，要求和格式见下，在打开`添加目录`窗口的同时会自动生成该文件
 
-### 7.ToDo List
+   ```txt
+   # =========================================================================
+   # 
+   # 建议在如下网站搜集目录：
+   #           1.京东图书 https://book.jd.com/
+   #           2.豆瓣读书 https://book.douban.com/
+   #           3.当当图书 http://book.dangdang.com/
+   #           4.文泉书局 https://wqbook.wqxuetang.com/
+   # 
+   # =========================================================================
+   # 标准格式1 如下:(空行不影响)
+   # 特征 ：两部分构成： 标题 + 空格 + 页码
+   # 标题中含 '第' 和 '章' 的会识别为一级标题，其他为二级标题
+   # =========================================================================
+   
+   第1章概述     1
+   什么是OpenCV        1
+   OpenCV怎么用        2
+   什么是计算机视觉     3
+   OpenCV的起源        6
+   OpenCV的结构    7
+   使用IPP来加速OpenCV     8
+   谁拥有OpenCV    9
+   下载和安装OpenCV    9
+   
+   # ==========================================================================
+   # 标准格式2 如下 
+   # 特征 ：章序/节序 + 空格 + 标题 + 空格 + 页码 （空格用于区分各元素）
+   # 无 章节序 的 默认识别为 二级标题 ，若想设置为一级标题，请在前加 '@ '，
+   # 一般 需要区分的是 前言 目录 附录 参考文献 这些 
+   # 节序中有一个点 表二级标题(如 6.1 )，两个点 表三级标题(如 1.2.3)，以此类推
+   # ==========================================================================
+   
+   第6章 支持向量机 121
+   6.1 间隔与支持向量 121
+   6.2 对偶问题 123
+   6.3 核函数 126
+   6.4 软间隔与正则化 129
+   6.5 支持向量回归 133
+   6.6 核方法 137
+   6.7 阅读材料 139
+   习题 141
+   休息一会儿 145
+   @ 参考文献 520
+   
+   # ==========================================================================
+   ```
+
+
+### 7.结语
+
+第一次使用`pyqt5`写一个完整的项目，用时大概六天。前期绘制界面一天。后期逐一完善各个功能四天，写文档，改bug一天。最大的感受就是Python语法友好，轮子很全。本次项目也是熟悉pyqt的过程。写完本应用基本掌握了常用的控件，信号，槽。整体而言，使用pyqt5编写一些小工具还是很方便的。至于执行效率，一般的小项目基本体现不出来。
+
+PyQt5优点：相较于QT Creator，python代码比较优雅；相较于 C# Winform/WPF ，python拥有较多的库。可用样式表`setStyleSheet`美化控件
+
+缺点：QT Designer 可设置参数偏少，需要使用代码设置，控件不够美观，打包文件偏大，推荐直接运行脚本。
+
+### 8.参考
+
+- [pymupdf](https://pymupdf.readthedocs.io/en/latest/#)
+- [qt class](https://doc.qt.io/qt-5/qtwidgets-module.html)
+- [Qt5 Python GUI Programming Cookbook 2018](https://www.amazon.com/Qt5-Python-Programming-Cookbook-cross-platform/dp/1788831004)
+
+### 9.ToDo List
 
 	- [ ] 自定义样式表
 	- [ ] 自动爬取目录
-
 	- [ ] img2pdf
 
-### 8.联系我： devxzh@qq.com
+### 联系我： devxzh@qq.com
 
