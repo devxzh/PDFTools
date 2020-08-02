@@ -4,10 +4,8 @@ Created on Sat Jul 18 12:43:01 2020
 
 @author: cherish
 """
-import sys
-import fitz
 
-shorthelp="""\
+shorthelp = """\
 输入参数及参数说明
 ——————————————————————————
 1. pdf源文件  2. txt格式的目录文件  3. 设置页码补偿参数
@@ -20,7 +18,7 @@ shorthelp="""\
 ——————————————————————————\
 """
 
-demostr="""
+demostr = """
 # =========================================================================
 # 本应用主要针对无目录pdf文件(扫描或文字版)
 # 目录可在各大图书网站(如豆瓣，京东，当当)查找，然后复制目录到 .txt 文件
@@ -78,15 +76,17 @@ OpenCV的结构    7
 # ==========================================================================
 """
 
+
 def generate_txtdemo():
     """
     生成 demo.txt 文件(目录样本文件)
     :param :无
     :return:无
     """
-    demotxt=open("demo.txt",'w+',encoding='UTF-8', errors='ignore')
+    demotxt = open("demo.txt", 'w+', encoding='UTF-8', errors='ignore')
     demotxt.write(demostr)
     demotxt.close()
+
 
 def count_dot(str):
     """
@@ -107,11 +107,11 @@ def get_level(str):
     :param: string 
     :return: int   
     """
-    level=1
+    level = 1
     if ('第' in str) and ('章' in str) or ('@' in str):
-        level=1
+        level = 1
     else:
-        level=count_dot(str)
+        level = count_dot(str)
     return level
 
 
@@ -121,39 +121,49 @@ def get_title(str):
     :param : str 输入应是 一行数据 如：( 6.1 间隔与支持向量 121 )
     :return: str title
     """
-    part=str.strip("@").split() # delete @
-    
-    if len(part) == 2 :
+    part = str.strip("@").split()  # delete @
+
+    if len(part) == 2:
         return part[0]
-    elif len(part) == 3 :
-        return part[0]+' '+part[1]
+    elif len(part) == 3:
+        return part[0] + ' ' + part[1]
     else:
         return '0'  # error
-    
+
+
 def get_page(str):
     """
     获取该项页码
     :param : str
     :return: int page
     """
-    page=str.split()[-1]
-    return int(page)
+    page = str.split()[-1]
+    temp=page
+    if temp.strip().lstrip('-').isdigit():
+    	return int(page)
+    else:
+	    return "该行目录错误: "+str
 
 
-def add2pdf(pdffile,txtfile,offset):
+def add2pdf(pdffile, txtfile, offset):
     """
     添加目录到PDF,其中文件应为打开状态
     :param: pdffile , textfile , offset
     :return:pdffile
     """
     lines = txtfile.readlines()
-    toc=[]
+    toc = []
+    
     for line in lines:
-        if line[0] =='#' or len(line.split())==0:
+        if line[0] == '#' or len(line.split()) == 0:
             continue
-        level=get_level(line)
-        title=get_title(line)
-        page=get_page(line)
-        toc.append([level,title,page])
+        level = get_level(line)
+        title = get_title(line)
+        if type(get_page(line))==type(1): #number
+        	page = get_page(line)+ offset
+        	toc.append([level, title, page])
+        else:
+	        return get_page(line)   # error str
+        
     pdffile.setToC(toc)
     return pdffile
