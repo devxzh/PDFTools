@@ -5,6 +5,8 @@ Created on Sat Jul 18 12:43:01 2020
 @author: cherish
 """
 
+import re
+
 shorthelp = """\
 输入参数及参数说明
 ——————————————————————————
@@ -24,13 +26,13 @@ demostr = """
 # 目录可在各大图书网站(如豆瓣，京东，当当)查找，然后复制目录到 .txt 文件
 # 根据需要适当调整 ，txt文件中可添加注释，以 '#' 开头，单独占一行
 # =========================================================================
-# 
+#
 # 建议在如下网站搜集目录：
 #           1.京东图书 https://book.jd.com/
 #           2.豆瓣读书 https://book.douban.com/
 #           3.当当图书 http://book.dangdang.com/
 #           4.文泉书局 https://wqbook.wqxuetang.com/
-# 
+#
 # =========================================================================
 # 标准格式1 如下:(空行不影响)
 # 特征 ：两部分构成： 标题 + 空格 + 页码
@@ -48,10 +50,10 @@ OpenCV的结构    7
 下载和安装OpenCV    9
 
 # ==========================================================================
-# 标准格式2 如下 
+# 标准格式2 如下
 # 特征 ：章序/节序 + 空格 + 标题 + 空格 + 页码 （空格用于区分各元素）
 # 无 章节序 的 默认识别为 二级标题 ，若想设置为一级标题，请在前加 '@ '，
-# 一般 需要区分的是 前言 目录 附录 参考文献 这些 
+# 一般 需要区分的是 前言 目录 附录 参考文献 这些
 # 节序中有一个点 表二级标题(如 6.1 )，两个点 表三级标题(如 1.2.3)，以此类推
 # ==========================================================================
 
@@ -72,7 +74,7 @@ OpenCV的结构    7
 # ==========================================================================
 #
 # —— 格式1 与 格式 2 取 其一 即可，用时替换非注释(#)部分,并删除不使用的格式 ——
-# 
+#
 # ==========================================================================
 """
 
@@ -91,44 +93,54 @@ def generate_txtdemo():
 def count_dot(str):
     """
     没有点是二级标题，1个点是二级标题，2个点是三级标题
-    :param: str 
-    :return: int 
+    :param: str
+    :return: int
     """
-    n = 2
+    n = 1
     for i in str:
         if i == '.':
             n += 1
-    return n
+    if n == 1:
+        return 2
+    else:
+        return n
 
 
 def get_level(str):
     """
     :获取标题级别  带有'章'或者'@' 关键字的是一级标题，否则按照小数点记级别
-    :param: string 
-    :return: int   
+    :param: string
+    :return: int
     """
     level = 1
     if ('第' in str) and ('章' in str) or ('@' in str):
         level = 1
     else:
         level = count_dot(str)
+
+    if level > 3:
+        level = 3
     return level
 
 
 def get_title(str):
     """
-    获取标题 ： 章节 + 标题 
+    获取标题 ： 章节 + 标题
     :param : str 输入应是 一行数据 如：( 6.1 间隔与支持向量 121 )
     :return: str title
     """
     part = str.strip("@").split()  # delete @
 
-    if len(part) == 2:
-        return part[0]
-    elif len(part) == 3:
-        return part[0] + ' ' + part[1]
+    # 页码和标题没有分隔符
+    if part[-1][-1].isdigit() and not part[-1][0].isdigit():
+        return re.sub(r"[0-9]{1,3}$", '', str).replace('\n', '')
     else:
-        return '0'  # error
+        if len(part) == 2:
+            return part[0]
+        elif len(part) == 3:
+            return part[0] + ' ' + part[1]
+        else:
+            return '0'  # error
 
 
 def get_page(str):
@@ -137,12 +149,14 @@ def get_page(str):
     :param : str
     :return: int page
     """
-    page = str.split()[-1]
-    temp=page
+
+    # page = str.split()[-1]
+    page = re.findall(r"[0-9]{1,3}$", str)[0]  # list 正则$表末尾查找
+    temp = page
     if temp.strip().lstrip('-').isdigit():
-    	return int(page)
+        return int(page)
     else:
-	    return "该行目录错误: "+str
+        return "该行目录错误: " + str
 
 
 def add2pdf(pdffile, txtfile, offset):
@@ -153,17 +167,16 @@ def add2pdf(pdffile, txtfile, offset):
     """
     lines = txtfile.readlines()
     toc = []
-    
+
     for line in lines:
         if line[0] == '#' or len(line.split()) == 0:
             continue
         level = get_level(line)
         title = get_title(line)
-        if type(get_page(line))==type(1): #number
-        	page = get_page(line)+ offset
-        	toc.append([level, title, page])
+        if type(get_page(line)) == type(1):  # number
+            page = get_page(line) + offset
+            toc.append([level, title, page])
         else:
-	        return get_page(line)   # error str
-        
+            return get_page(line)  # error str
     pdffile.setToC(toc)
     return pdffile

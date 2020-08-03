@@ -6,6 +6,7 @@ Created on Fri Jul 17 12:15:16 2020
 """
 
 import sys
+
 import fitz
 from PyQt5.QtWidgets import QApplication, QDialog, QFileDialog
 from addFunctins import *
@@ -70,15 +71,15 @@ class AddForm(QDialog):
         if self.ui.lineEdit_PDF.text() != "" and self.ui.lineEdit_TXT.text() != "":
             self.ui.textEdit_progress.setText("可以")
             addReturn = add2pdf(self.doc, self.txt, self.offsetNum)
-            if type(addReturn)==type(self.doc):
-            	self.pdf = addReturn
-            	if self.pdf != None:
-	                newname = self.ui.lineEdit_PDF.text().replace(".pdf", "-new.pdf")
-	                self.pdf.save(newname)
-	                self.ui.textEdit_progress.setText("目录添加成功")
+            if type(addReturn) == type(self.doc):
+                self.pdf = addReturn
+                if self.pdf != None:
+                    newname = self.ui.lineEdit_PDF.text().replace(".pdf", "-new.pdf")
+                    self.pdf.save(newname)
+                    self.ui.textEdit_progress.setText("目录添加成功")
             else:
-	            self.ui.textEdit_progress.setText(addReturn) # error
-            
+                self.ui.textEdit_progress.setText(addReturn)  # error
+
         else:
             self.ui.textEdit_progress.setText("缺少文件")
 
