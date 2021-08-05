@@ -86,7 +86,7 @@ pip3 install pyqt5==5.12.0
 
 4. 推荐使用`ipython`在命令行窗口对方法/类 进行测试
 
-5. ~~如果需要可进行打包~~ (生成的文件可能无法直接运行)
+5. 如果需要可进行打包
 
    ```bash
    pyinstaller --onefile --windowed --icon=PDF.ico main.py

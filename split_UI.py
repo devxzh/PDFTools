@@ -21,7 +21,7 @@ class Ui_Split_Dialog(object):
         Split_Dialog.setMaximumSize(QtCore.QSize(611, 331))
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
-        font.setPointSize(12)
+        font.setPointSize(10)
         Split_Dialog.setFont(font)
         self.lineEdit_w3_openPDF = QtWidgets.QLineEdit(Split_Dialog)
         self.lineEdit_w3_openPDF.setGeometry(QtCore.QRect(29, 30, 460, 30))

@@ -16,7 +16,7 @@ class Ui_Add_Dialog(object):
         Add_Dialog.setMaximumSize(QtCore.QSize(595, 392))
         font = QtGui.QFont()
         font.setFamily("微软雅黑")
-        font.setPointSize(12)
+        font.setPointSize(10)
         Add_Dialog.setFont(font)
         self.lineEdit_PDF = QtWidgets.QLineEdit(Add_Dialog)
         self.lineEdit_PDF.setGeometry(QtCore.QRect(26, 22, 350, 35))
